@@ -1,33 +1,17 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'pages/home.dart';
+import 'pages/loading.dart';
+import 'pages/location.dart';
 
 void main() => runApp(MaterialApp(
-  home: Home(),
-));
-
-class Home extends StatelessWidget {
-  @override
-  Widget build (BuildContext context){
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Nazir First App'),
-        centerTitle: true,
-        backgroundColor: Colors.red[600],
-      ),
-      body: const Center(
-        child: Text(
-          "Hello Nazir's",
-          style: TextStyle(
-
-          ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.red,
-        onPressed: () {
-          print("object");
-        },
-        child: const Text("Click"),
-      ),
-    );
-  }
-}
+      initialRoute: "/home",
+      routes: {
+        '/': (context) => Loading(),
+        '/home': (context) => Home(),
+        '/location': (context) => ChangeLocation()
+      },
+    ));
